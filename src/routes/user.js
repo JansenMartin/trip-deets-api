@@ -8,6 +8,12 @@ router.post('/user', (req, res) => {
     if(!req.body) {
       return res.status(400).send('Request body is missing')
     }
+
+  //Incoming user object will look like this:
+  // let user = {
+  //   name: 'firstname lastname',
+  //   email: 'email@gmail.com'
+  // }
   
     let model = new UserModel(req.body)
     console.log(model);

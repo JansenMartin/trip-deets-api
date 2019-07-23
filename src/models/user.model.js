@@ -1,8 +1,9 @@
 require('dotenv').config()
 let mongoose = require('mongoose')
 
+// const server = "trip-deets-api-c7wl8.mongodb.net"
 const server = process.env.SERVER
-const user = process.env.USER
+const user = "symbologic"
 const password = process.env.PASSWORD
 
 mongoose.connect(

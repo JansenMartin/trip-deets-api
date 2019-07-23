@@ -3,7 +3,9 @@ let app = express()
 let userRoute = require('./routes/user')
 let path = require('path')
 let bodyParser = require('body-parser')
+const cors = require('cors')
 
+app.use(cors())
 app.use(bodyParser.json())
 
 app.use((req, res, next) => {

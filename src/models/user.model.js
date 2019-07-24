@@ -12,13 +12,24 @@ mongoose.connect(
 )
 mongoose.set('useCreateIndex', true);
 
+let ListSchema = new mongoose.Schema({
+    location: String, 
+    name: String, 
+    completed: Boolean  
+});
+
+// var parentSchema = new Schema({
+//   children: [childSchema]
+// })
+
 let UserSchema = new mongoose.Schema({
     name: String,
     email: {
       type: String,
       required: true,
       unique: true
-    }
+    },
+    list: [{ListSchema}]
   })
   
   module.exports = mongoose.model('User', UserSchema)

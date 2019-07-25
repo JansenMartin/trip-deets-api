@@ -30,4 +30,42 @@ router.post('/user', (req, res) => {
       })
   })
 
+// GET user
+// GET request
+router.get('/user', (req, res) => {
+    if(!req.query.email) {
+      return res.status(400).send('Missing URL parameters: email');
+    }
+  
+    UserModel.findOne({
+      email: req.query.email
+    })
+    .then(doc => {
+      res.json(doc)
+    })
+    .catch(err => {
+      res.status(500).json(err)
+  })
+  })
+
+  // UPDATE user
+router.put('/user', (req, res) => {
+    if(!req.query.email) {
+      return res.status(400).send('Missing URL parameters: email');
+    }
+  
+    UserModel.findOneAndUpdate({
+      email: req.query.email
+    }, req.body, {
+      new: true
+    })
+    .then(doc => {
+      res.json(doc)
+    })
+    .catch(err => {
+      res.status(500).json(err)
+  })
+})
+
+
   module.exports = router

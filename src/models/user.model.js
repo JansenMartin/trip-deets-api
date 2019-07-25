@@ -8,13 +8,21 @@ const password = process.env.PASSWORD
 
 mongoose.connect(
     `mongodb+srv://${user}:${password}@${server}/test?retryWrites=true&w=majority`,
-    { useNewUrlParser: true }
+    { useNewUrlParser: true, useFindAndModify: false }
 )
 mongoose.set('useCreateIndex', true);
 
+// var schema = new mongoose.Schema({
+//     field1:{type:String},
+//     subdocArray:[{
+//        _id:false,
+//        field :{type:String}
+//     }]
+//  });
+
 let ListSchema = new mongoose.Schema({
-    name: String, 
-    completed: Boolean  
+    item: {type: String}, 
+    completed: {type: Boolean}  
 }, { _id : false });
 
 // var parentSchema = new Schema({

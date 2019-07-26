@@ -33,6 +33,7 @@ router.post('/user', (req, res) => {
 // GET user
 // GET request
 router.get('/user', (req, res) => {
+    console.log("Inside the GET request...")
     if(!req.query.email) {
       return res.status(400).send('Missing URL parameters: email');
     }
@@ -41,10 +42,12 @@ router.get('/user', (req, res) => {
       email: req.query.email
     })
     .then(doc => {
-      return res.json(doc)
+     console.log(`This is the response if the GET request is successful: ${doc}`)
+      res.json(doc)
     })
     .catch(err => {
       res.status(500).json(err)
+      console.log(`This is the error if GET request is NOT successful: ${err}`)
   })
   })
 

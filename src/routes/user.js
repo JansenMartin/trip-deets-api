@@ -41,7 +41,7 @@ router.get('/user', (req, res) => {
       email: req.query.email
     })
     .then(doc => {
-      res.json(doc)
+      return res.json(doc)
     })
     .catch(err => {
       res.status(500).json(err)

@@ -10,6 +10,7 @@ app.use(bodyParser.json())
 
 app.use((req, res, next) => {
     console.log(`${new Date().toString()} => ${req.originalUrl}`, req.body)
+    console.log("This is a test console statement")
     next()
   })
 

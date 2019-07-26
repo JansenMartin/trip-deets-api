@@ -28,5 +28,6 @@ app.use((err, req, res, next) => {
   res.sendFile(path.join(__dirname, '../public/500.html'))
 })
 
+// Heroku supposedly assigns the PORT dynamically
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.info(`Server has started on ${PORT}`));
